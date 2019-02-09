@@ -1,6 +1,7 @@
 class HikesController < ApplicationController
-  
   before_action :get_hike, only: [:show]
+
+  before_action :get_hike, only: [:show, :edit, :update]
 
   def index
     @hikes = Hike.all
@@ -22,6 +23,17 @@ class HikesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @hike.update(hike_update_params)
+      redirect_to @hike
+    else
+      render :edit
+    end
+  end
+
   def destroy
     Hike.destroy(params[:id])
     redirect_to hikes_path
@@ -34,6 +46,10 @@ class HikesController < ApplicationController
   end
 
   def hike_params
+    params.require(:hike).permit(:user_id, :trail_id,:start_time, :end_time).merge(rating: nil)
+  end
+
+  def hike_update_params
     params.require(:hike).permit(:user_id, :trail_id, :start_time, :end_time, :rating)
   end
 end
