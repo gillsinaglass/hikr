@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.destroy(params[:id])
-    redirect_to users_path
+    redirect_to users_path #redirect to logout page which has not yet been created
   end
 
   private

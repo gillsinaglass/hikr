@@ -1,0 +1,10 @@
+<h2>Username: <%= @user.username %></h2><br>
+<h2>Gear: <%= @user.gear %></h2><br>
+<h2>Photo: <%= @user.photo %></h2><br>
+<h2>Caption: <%= @user.caption %></h2><br><br>
+
+<%= link_to "Edit a User", edit_user_path(@user) %><br><br>
+
+<%= form_tag @user, method: "DELETE" do %>
+  <%= submit_tag "Delete this User" %>
+<% end %>
