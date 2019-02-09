@@ -1,0 +1,24 @@
+<h1>Choose a Trail</h1>
+
+<table>
+<thead>
+  <tr>
+    <th>Trail Name</th>
+    <th>Distance</th>
+    <th>Difficulty Level (Max 10)</th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @trails.each do |trail| %>
+    <tr>
+      <td><%= link_to trail.name, trail %></td>
+      <td><%= trail.distance %></td>
+      <td><%= trail.difficulty_level %></td>
+    </tr>
+  <% end %>
+</tbody>
+
+
+
+</table>
