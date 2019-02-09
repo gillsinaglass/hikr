@@ -1,10 +1,6 @@
 class BreaksController < ApplicationController
   
-  before_action :get_break, only: [:show]
-
-  def index
-    @breaks = Break.all
-  end
+  before_action :get_break, only: [:show, :edit, :update]
 
   def show
   end
@@ -22,6 +18,17 @@ class BreaksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @break.update(break_update_params)
+      redirect_to @break
+    else
+      render :edit
+    end
+  end
+
   private
 
   def get_break
@@ -29,6 +36,10 @@ class BreaksController < ApplicationController
   end
 
   def break_params
+    params.require(:break).permit(:user_id, :shelter_id, :start_time, :end_time).merge(review: nil)
+  end
+
+  def break_update_params
     params.require(:break).permit(:user_id, :shelter_id, :start_time, :end_time, :review)
   end
 end

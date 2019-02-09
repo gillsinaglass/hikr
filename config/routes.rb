@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :hikes, only: [:index, :show, :new, :create, :destroy]
-  resources :breaks, only: [:index, :show, :new, :create]
+  resources :breaks, except: [:destroy, :index]
   resources :shelters, only: [:index, :show]
   resources :trails, only: [:index, :show]
   resources :users, only: [:show, :new, :create, :edit, :update, :destroy]
