@@ -1,0 +1,10 @@
+<h1>Update or end your hike!</h1>
+
+<%= form_for @hike do |f| %>
+<%= f.label :rating %>
+<%= f.select :rating, (1..10) %>
+<%= f.submit "Submit" %>
+
+
+
+<% end %>

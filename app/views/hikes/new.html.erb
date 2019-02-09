@@ -1,0 +1,10 @@
+<h1>Create a Hike</h1>
+
+<%= form_for @hike do |f| %>
+<%= f.collection_select(:trail_id, Trail.all, :id, :name, prompt: "Trail") %>
+<%= f.collection_select(:user_id, User.all, :id, :username, prompt: "User") %>
+<%= f.submit "Submit" %>
+
+
+
+<% end %>
