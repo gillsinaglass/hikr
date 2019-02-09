@@ -9,18 +9,18 @@ class TrailsController < ApplicationController
   def show
   end
 
-  def new
-    @trail = Trail.new
-  end
+  # def new
+  #   @trail = Trail.new
+  # end
 
-  def create
-    @trail = Trail.new(trail_params)
-    if @trail.save
-      redirect_to @trail
-    else
-      render :new
-    end
-  end
+  # def create
+  #   @trail = Trail.new(trail_params)
+  #   if @trail.save
+  #     redirect_to @trail
+  #   else
+  #     render :new
+  #   end
+  # end
 
   private
 

@@ -1,0 +1,9 @@
+
+<% @shelters.each do |shelter| %>
+  <h2>Name: <%= shelter.name %></h2>
+  <h2>Location: <%= shelter.location %></h2>
+  <h2>Description: <%= shelter.description %></h2>
+
+  <%= link_to "Show Shelter", shelter %>
+
+<% end %>
