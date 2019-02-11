@@ -2,6 +2,8 @@ class Break < ApplicationRecord
   belongs_to :user
   belongs_to :shelter
 
+  validates :review, presence: true, on: :update
+
   def start_time
     d = DateTime.parse(self.created_at.to_s)
     @start_time = d.strftime('%I:%M %p')
