@@ -1,7 +1,10 @@
 <h1>Hike</h1>
 
-<%= @hike.user.username%>
-<%= @hike.trail.name %>
-<%= @hike.rating %>
+<h3>Hiker Username: </h3><%= @hike.user.username%>
+<h3>Trail Name: </h3><%= @hike.trail.name %>
+<h3>Hike Rating: </h3><%= @hike.rating %>
+<h3>Hike Started At: </h3><%= @hike.start_time %>
+<h3>Hike Ended At: </h3><%= @hike.end_time %>
+<h3>Total Hike Time: </h3><%= @hike.length_of_hike %><br><br>
 
 <%= link_to "Update or End Hike", edit_hike_path %>
