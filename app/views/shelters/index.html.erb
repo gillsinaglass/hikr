@@ -1,8 +1,26 @@
-<% @shelters.each do |shelter| %>
-  <h3>Name: </h3><%= shelter.name %>
-  <h3>Location: </h3><%= shelter.location %>
-  <h3>Description: </h3><%= shelter.description %><br><br>
+<h1>Shelters to Explore</h1>
+<h2>Most Visited Shelter: <%= Shelter.most_visited_shelter.name %> <%= Shelter.percentage_of_visitors %>%</h2>
+<h2>Highest Rated Shelter: <%= Shelter.highest_rated_shelter.name %> <%= Shelter.highest_rated_shelter.avg_rating %>/10</h2>
 
-  <%= link_to "Show Shelter", shelter %>
+<table>
+<thead>
+  <tr>
+    <th>Shelter Name</th>
+    <th>Trail Name</th>
+    <th>Location on Trail</th>
+    <th>Description</th>
+  </tr>
+</thead>
 
-<% end %>
+<tbody>
+  <% @shelters.each do |shelter| %>
+    <tr>
+      <td><%= link_to shelter.name, shelter %></td>
+      <td><%= link_to shelter.trail.name, shelter.trail%></td>
+      <td><%= shelter.location %></td>
+      <td><%= shelter.description %></td>
+    </tr>
+  <% end %>
+</tbody>
+
+</table>

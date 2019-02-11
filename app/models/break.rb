@@ -1,7 +1,6 @@
 class Break < ApplicationRecord
   belongs_to :user
   belongs_to :shelter
-
   validates :review, presence: true, on: :update
 
   def start_time
