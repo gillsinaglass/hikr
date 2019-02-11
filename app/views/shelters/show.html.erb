@@ -1,5 +1,11 @@
 <h3>Name: </h3><%= @shelter.name %>
 <h3>Location: </h3><%= @shelter.location %>
 <h3>Description: </h3><%= @shelter.description %><br><br>
+<h3>Shelter Reviews: </h3>
+<ul>
+  <% @shelter.get_reviews.each do |b| %>
+  <li><%= b.user.username %> - <%= b.review %></li>
+  <% end %>
+</ul>
 
 <%= link_to "All Shelters", shelters_path %>

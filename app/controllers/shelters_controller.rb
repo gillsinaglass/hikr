@@ -1,5 +1,5 @@
 class SheltersController < ApplicationController
-  
+
   before_action :get_shelter, only: [:show]
 
   def index
@@ -12,7 +12,7 @@ class SheltersController < ApplicationController
   # def new
   #   @shelter = Shelter.new
   # end
-
+  #
   # def create
   #   @shelter = Shelter.new(shelter_params)
   #   if @shelter.save
