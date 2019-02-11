@@ -1,5 +1,5 @@
 class BreaksController < ApplicationController
-  
+
   before_action :get_break, only: [:show, :edit, :update]
 
   def show
@@ -36,10 +36,10 @@ class BreaksController < ApplicationController
   end
 
   def break_params
-    params.require(:break).permit(:user_id, :shelter_id, :start_time, :end_time).merge(review: nil)
+    params.require(:break).permit(:user_id, :shelter_id, :start_time, :end_time).merge(review: nil, rating: nil)
   end
 
   def break_update_params
-    params.require(:break).permit(:user_id, :shelter_id, :start_time, :end_time, :review)
+    params.require(:break).permit(:user_id, :shelter_id, :start_time, :end_time, :review, :rating)
   end
 end

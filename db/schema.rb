@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_08_211933) do
+ActiveRecord::Schema.define(version: 2019_02_11_152111) do
 
   create_table "breaks", force: :cascade do |t|
     t.string "review"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_211933) do
     t.datetime "updated_at", null: false
     t.integer "shelter_id"
     t.integer "user_id"
+    t.integer "rating"
     t.index ["shelter_id"], name: "index_breaks_on_shelter_id"
     t.index ["user_id"], name: "index_breaks_on_user_id"
   end

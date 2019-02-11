@@ -3,10 +3,6 @@ class HikesController < ApplicationController
 
   before_action :get_hike, only: [:show, :edit, :update]
 
-  def index
-    @hikes = Hike.all
-  end
-
   def show
   end
 
