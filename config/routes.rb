@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
   resources :hikes, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :breaks, only: [:index, :show, :new, :create, :edit, :update]
   resources :shelters, only: [:index, :show]
