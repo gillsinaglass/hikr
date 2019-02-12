@@ -1,2 +1,19 @@
 <h2>Create a User</h2>
-<%= render "user_form" %>
+
+<%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+<ul>
+   <% @user.errors.full_messages.each do |m| %>
+  <li><%= m %></li>
+    <% end %>
+</ul>
+  <% end %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f. password_field :password_confirmation %>
+  <%= f.submit %>
+<% end %>

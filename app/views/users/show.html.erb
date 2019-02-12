@@ -8,8 +8,8 @@
 
 <h2>Caption: <%= @user.caption %></h2><br><br>
 
-<%= link_to "Edit a User", edit_user_path(@user) %><br><br>
+<%= link_to "Update Your Profile", edit_user_path(@user) %><br><br>
 
 <%= form_tag @user, method: "DELETE" do %>
-  <%= submit_tag "Delete this User" %>
+  <%= submit_tag "Suspend Account" %>
 <% end %>

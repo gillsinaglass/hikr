@@ -1,7 +1,8 @@
 class BreaksController < ApplicationController
 
   before_action :get_break, only: [:show, :edit, :update]
-
+  before_action :authorized
+  
   def show
   end
 

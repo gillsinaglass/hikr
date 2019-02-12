@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :edit, :update]
+  before_action :authorized
 
   def index
     @users = User.all.with_attached_photo
   end
 
   def show
-    byebug
+
   end
 
   def new
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :password, :gear, :caption)
+    params.require(:user).permit(:username, :password, :gear, :caption, :admin)
   end
 
 end

@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   resources :hikes, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :breaks, only: [:index, :show, :new, :create, :edit, :update]
-  resources :shelters, only: [:index, :show]
   resources :trails, only: [:index, :show, :create, :new]
   resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :shelters, only: [:index, :show, :new, :create] 
+  
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

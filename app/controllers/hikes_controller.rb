@@ -1,7 +1,7 @@
 class HikesController < ApplicationController
   before_action :get_hike, only: [:show]
-
   before_action :get_hike, only: [:show, :edit, :update]
+  before_action :authorized
 
   def show
   end
