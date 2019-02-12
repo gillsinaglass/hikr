@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 
   before_action :get_user, only: [:show, :edit, :update]
 
+  def index
+    @users = User.all.with_attached_photo
+  end
 
   def show
   end
@@ -12,6 +15,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.photo.attach(params[:user][:photo])
     if @user.save
       redirect_to @user
     else
@@ -24,6 +28,7 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
+    @user.photo.attach(params[:user][:photo])
     redirect_to @user
   end
 
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :gear, :photo, :caption)
+    params.require(:user).permit(:username, :gear, :caption)
   end
 
 end
