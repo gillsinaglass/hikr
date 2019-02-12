@@ -1,0 +1,10 @@
+<h1>View all Hikers!</h1>
+  <% @users.each do |user| %>
+  <ul>
+      <li><%= link_to user.username, user %></li>
+      <li><%= user.gear %></li>
+      <li><%= user.caption %></li>
+  <% end %>
+  </ul>
+
+  #add photo!

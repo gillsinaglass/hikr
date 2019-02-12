@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    byebug
   end
 
   def new
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :gear, :caption)
+    params.require(:user).permit(:username, :password, :gear, :caption)
   end
 
 end
