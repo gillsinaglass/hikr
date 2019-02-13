@@ -13,7 +13,6 @@ class User < ApplicationRecord
     end
   end
 
-end
   def shelters_visited
     user_breaks = Break.all.select do |b|
       b.user_id == self.id
