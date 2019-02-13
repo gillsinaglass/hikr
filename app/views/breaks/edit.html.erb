@@ -10,6 +10,6 @@
   <%= f.label :review, "Review Your Break!" %><br><br>
   <%= f.text_area :review %><br>
   <%= f.label :rating, "Rate Your Break!" %>
-  <%= f.select :rating, (1..10) %>
+  <%= f.select :rating, (1..10), :include_blank => "Please Rate" %>
   <%= f.submit "Leave Review" %>
 <% end %>

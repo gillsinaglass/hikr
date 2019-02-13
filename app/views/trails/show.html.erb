@@ -3,5 +3,13 @@
 <h2>Description: <%= @trail.description %></h2>
 <h2>Distance: <%= @trail.distance %></h2>
 <h2>Difficulty Level: <%= @trail.difficulty_level %></h2>
+<h2>Hikes On Trail: <%= @trail.hikes_on_trail.count %></h2>
+
+<h3>Shelters on <%= @trail.name %>: </h3>
+<ul>
+  <% @trail.shelters.each do |shelter| %>
+  <li><%= link_to shelter.name, shelter %></li>
+  <% end %>
+</ul>
 
 <h4><%= link_to "Back to trail list", trails_path %></h4>
