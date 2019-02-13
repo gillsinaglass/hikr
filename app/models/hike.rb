@@ -10,24 +10,28 @@ class Hike < ApplicationRecord
 
   def start_time
     d = DateTime.parse(self.created_at.to_s)
-    @start_time = d.strftime('%I:%M %p')
+    d.strftime('%I:%M %p')
   end
 
-  def end_time
+  def status
     if self.updated_at == self.created_at
-      @end_time = self.updated_at = "Pending"
+      return "Pending"
     else
-      d = DateTime.parse(self.updated_at.to_s)
-      @end_time = d.strftime('%I:%M %p')
+      return self.updated_at
     end
   end
 
+  def end_time
+      d = DateTime.parse(self.updated_at.to_s)
+      d.strftime('%I:%M %p')
+  end
+
   def length_of_hike
-    if @end_time == "Pending"
-      @length_of_hike = nil
+    if self.status == "Pending"
+      return nil
     else
       d = DateTime.parse((self.created_at - self.updated_at).to_s)
-      @length_of_hike = d.strftime('%M min %S secs')
+      return d.strftime('%M min %S secs')
     end
   end
 
