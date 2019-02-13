@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       if @user.admin?
         redirect_to shelters_path
       else
-      redirect_to users_path
+      redirect_to @user
       end
     else
       flash["notice"] = "No user found with that name."

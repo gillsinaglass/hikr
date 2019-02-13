@@ -19,24 +19,24 @@ class User < ApplicationRecord
     end
   end
 
-  def shelters_visited
-    shelter_ids = self.breaks_by_user.map {|b| b.shelter }
+  def shelters_visited_by_user
+    shelter = self.breaks_by_user.collect {|b| b.shelter }
+    shelter.compact
   end
 
   def favorite_shelter
-    self.shelters_visited.max_by {|b| b.rating }
+    self.shelters_visited_by_user.max_by {|s| s.shelter_rating }
   end
 
-  def trail_hiked_by_user
-    a = self.hikes_by_user.collect do |h|
-      h.trail
-    end
+  def trails_hiked_by_user
+      trail = self.hikes_by_user.collect {|h| h.trail}
+        trail.compact
   end
 
   def favorite_trail
-    a = self.trail_hiked_by_user.max_by do |trail|
-      trail.trail_rating
-    end
+      self.trails_hiked_by_user.max_by do |trail|
+        trail.trail_rating
+      end
   end
 
 end

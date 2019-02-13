@@ -28,6 +28,7 @@ class Trail < ApplicationRecord
     a = self.hikes_on_trail.collect do |hike|
       hike.user
     end
+    a.uniq
   end
 
   def avg_rating

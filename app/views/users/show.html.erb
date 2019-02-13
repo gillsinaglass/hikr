@@ -8,17 +8,19 @@
 
 <h2> Shelters Visited: </h2>
 <ul>
-<% @user.shelters_visited.uniq.each do |s| %>
+<% @user.shelters_visited_by_user.uniq.each do |s| %>
 <li><%= s.name %></li>
 <% end %>
 </ul>
 
-<h2>Favorite Shelter: <%= @user.favorite_shelter %></h2>
-<h2>Favorite Trail: <%= @user.favorite_trail %></h2>
+<h2>Favorite Shelter: <%= @user.favorite_shelter.name %></h2>
+<h2>Favorite Trail: <%= @user.favorite_trail.name %></h2>
 
 <h2>Caption: <%= @user.caption %></h2><br><br>
 
-<%= link_to "Update Your Profile", edit_user_path(@user) %><br><br>
+<%= link_to "Update Your Profile", edit_user_path(@user) %>
+<%= link_to "Explore Trails", trails_path %>
+
 
 <%= form_tag @user, method: "DELETE" do %>
   <%= submit_tag "Suspend Account" %>
