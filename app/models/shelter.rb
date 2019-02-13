@@ -11,13 +11,14 @@ class Shelter < ApplicationRecord
   end
 
   def review_blank
-    review_array = self.breaks_at_shelter.collect do |b|
-      if b.review == nil
-        review_array = nil
+    @review_array = self.breaks_at_shelter.collect do |b|
+      if b.review != ""
+        "#{b.user.username} - '#{b.review}' -- #{b.rating}"
       else
-        review_array = "#{b.user.username} - #{b.review}"
+        nil
       end
     end
+    @review_array.compact!
   end
 
   def self.most_visited_shelter
@@ -34,23 +35,26 @@ class Shelter < ApplicationRecord
     (Shelter.most_visited_shelter_count / Break.all.count.to_f*100).round(2)
   end
 
-  def shelter_ratings
-    a = Break.all.map do |b|
+  def shelter_rating
+    a = self.breaks_at_shelter.collect do |b|
       b.rating
     end
-    a.compact!
+    (a.inject{ |sum, el| sum + el }.to_f / a.size).round(2)
+  end
+
+  def all_shelter_ratings
+    a = Break.all.collect do |b|
+      b.rating
+    end
   end
 
   def avg_rating
-    self.shelter_ratings.reduce(:+)/self.shelter_ratings.length.to_f
+    self.all_shelter_ratings.reduce(:+)/self.all_shelter_ratings.length.to_f
   end
 
   def self.highest_rated_shelter
     Shelter.all.max_by do |shelter|
-    shelter.avg_rating
+    shelter.shelter_rating
     end
   end
-
-
-
 end

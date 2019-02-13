@@ -13,6 +13,7 @@ class User < ApplicationRecord
     end
   end
 
+end
   def shelters_visited
     user_breaks = Break.all.select do |b|
       b.user_id == self.id
@@ -29,7 +30,7 @@ class User < ApplicationRecord
     user_breaks = Break.all.select do |b|
       b.user_id == self.id
     end
-    if user_breaks.nil? 
+    if user_breaks.nil?
       "You have never visited a shelter"
     else
       id = user_breaks.max_by {|b| b.rating }
@@ -48,5 +49,5 @@ class User < ApplicationRecord
       trail.trail_rating
     end
   end
-  
+
 end
