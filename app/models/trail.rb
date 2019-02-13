@@ -10,10 +10,14 @@ class Trail < ApplicationRecord
   end
 
   def trail_rating
-    a = self.hikes_on_trail.collect do |hike|
-      hike.rating
+    arr = self.hikes_on_trail.select do |hike|
+      hike.rating != nil
     end
-     @@rating = a.inject{ |sum, el| sum + el }.to_f / a.size
+    arr.each do |hike|
+      hike.rating
+      byebug
+    end
+    arr2.inject{ |sum, el| sum + el }.to_f / a.size.round(2)
   end
 
 

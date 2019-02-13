@@ -1,27 +1,29 @@
-<h2>Username: <%= @user.username %></h2><br>
-<h2>Gear: <%= @user.gear %></h2><br>
+<h2>Username: <%= @user.username %></h2>
+<h3>Caption: <%= @user.caption %></h3>
 
 <% if @user.photo.attached? %>
 <h2>Profile Pic:</h2>
   <%= image_tag @user.photo %>
 <% end %>
 
+<h2>Gear: <%= @user.gear %></h2>
 <h2> Shelters Visited: </h2>
 <ul>
 <% @user.shelters_visited_by_user.uniq.each do |s| %>
-<li><%= s.name %></li>
+<li><%= link_to s.name, s %></li>
 <% end %>
 </ul>
 
-<h2>Favorite Shelter: <%= @user.favorite_shelter.name %></h2>
-<h2>Favorite Trail: <%= @user.favorite_trail.name %></h2>
+<h2>Favorite Shelter: <%= link_to @user.favorite_shelter.name, @user.favorite_shelter %></h2>
+<h2>Favorite Trail: <%= link_to @user.favorite_trail.name, @user.favorite_trail %></h2>
 
-<h2>Caption: <%= @user.caption %></h2><br><br>
 
-<%= link_to "Update Your Profile", edit_user_path(@user) %>
 <%= link_to "Explore Trails", trails_path %>
+<%= link_to "View Other Hikers", users_path %><br><br><br>
+<%= link_to "Update Your Profile", edit_user_path(@user) %><br><br><br><br><br>
 
 
+<hr>
 <%= form_tag @user, method: "DELETE" do %>
   <%= submit_tag "Suspend Account" %>
-<% end %>
+<% end %></hr>

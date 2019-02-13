@@ -17,6 +17,12 @@
       <%= link_to "Log in", login_path %>
     <%end %>
   </div>
+
+  <div class="header">
+    <% if session[:user_id] %>
+      <%= link_to "#{current_user.username}'s Home Page", current_user, method: "GET" %>
+      <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>

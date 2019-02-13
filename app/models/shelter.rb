@@ -18,7 +18,7 @@ class Shelter < ApplicationRecord
         nil
       end
     end
-    @review_array.compact!
+    @review_array.compact
   end
 
   def self.most_visited_shelter

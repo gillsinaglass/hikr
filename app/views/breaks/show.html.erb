@@ -1,3 +1,4 @@
+<h2>Break Has Begun at <%= link_to @break.shelter.name %></h2>
 <h3>Start Time: </h3><%= @break.start_time %>
 <h3>End Time: </h3><%= @break.end_time %><br>
 <h3>Total Break Time: </h3><%= @break.length_of_break %>
@@ -5,4 +6,4 @@
 <h3>Rating: </h3><%= @break.rating %><br><br>
 
 
-<%= link_to "Edit Breaks", edit_break_path(@break) %>
+<%= link_to "End Break", edit_break_path(@break) %>

@@ -9,4 +9,13 @@
 <h3>Trail Length: </h3><%= @hike.get_trail_length %>
 <h3>Average Mile: </h3><%= @hike.avg_mile_pace %><br><br>
 
+<h3>Shelters on <%= @hike.trail.name %>:</h3>
+<ul>
+  <% @hike.trail.shelters.each do |shelter| %>
+  <li><%= link_to shelter.name, shelter %></li>
+  <% end %>
+</ul>
+
+
+
 <%= link_to "Update or End Hike", edit_hike_path %>
