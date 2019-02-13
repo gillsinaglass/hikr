@@ -5,7 +5,7 @@ class Shelter < ApplicationRecord
 
   #returns breaks at a specific shelter
   def breaks_at_shelter
-    Break.all.select do |b|
+    Break.completed_breaks.select do |b|
       b.shelter_id == self.id
     end
   end

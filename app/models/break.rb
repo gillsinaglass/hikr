@@ -3,6 +3,12 @@ class Break < ApplicationRecord
   belongs_to :shelter
   validates :rating, presence: true, on: :update
 
+  def self.completed_breaks
+    Break.all.select do |br|
+      br.updated_at != br.created_at
+    end
+  end
+
   def start_time
     d = DateTime.parse(self.created_at.to_s)
     @start_time = d.strftime('%I:%M %p')

@@ -27,8 +27,7 @@ class Hike < ApplicationRecord
       @length_of_hike = nil
     else
       d = DateTime.parse((self.created_at - self.updated_at).to_s)
-      @hike_minutes = d.strftime('%M')
-      @length_of_hike = @hike_minutes + " minutes"
+      @length_of_hike = d.strftime('%M min %S secs')
     end
   end
 

@@ -8,13 +8,13 @@ class User < ApplicationRecord
   has_secure_password
 
   def hikes_by_user
-    user_hikes = Hike.all.select do |b|
+    user_hikes = Hike.completed_hikes.select do |b|
       b.user_id == self.id
     end
   end
 
   def breaks_by_user
-    user_breaks = Break.all.select do |b|
+    user_breaks = Break.completed_breaks.select do |b|
       b.user_id == self.id
     end
   end
@@ -25,7 +25,11 @@ class User < ApplicationRecord
   end
 
   def favorite_shelter
-    self.shelters_visited_by_user.max_by {|s| s.shelter_rating }
+    if self.shelters_visited_by_user.size >= 1
+    arr = self.shelters_visited_by_user.max_by {|s| s.shelter_rating }
+  else
+    arr = Shelter.all.sample
+  end
   end
 
   def trails_hiked_by_user
@@ -34,9 +38,13 @@ class User < ApplicationRecord
   end
 
   def favorite_trail
-      self.trails_hiked_by_user.max_by do |trail|
+      if self.trails_hiked_by_user.size >= 1
+      arr = self.trails_hiked_by_user.max_by do |trail|
         trail.trail_rating
       end
+    else
+      arr = Trail.all.sample
+    end
   end
 
 end

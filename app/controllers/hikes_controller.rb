@@ -42,7 +42,7 @@ class HikesController < ApplicationController
   end
 
   def hike_params
-    params.require(:hike).permit(:user_id, :trail_id,:start_time, :end_time).merge(rating: 1)
+    params.require(:hike).permit(:trail_id,:start_time, :end_time).merge(user_id: current_user.id, rating: 1)
   end
 
   def hike_update_params

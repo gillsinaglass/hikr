@@ -12,12 +12,13 @@
   <% end %>
 </ul>
 
-<h3>Users on Trail:</h3>
+<h3>Previous Hikers:</h3>
   <ul>
   <% @trail.users_on_trail.each do |user| %>
-  <li><%= user.username %></li>
+  <li><%= link_to user.username, user %></li>
   <% end %></h3>
 
 </ul>
 
+<hr>
 <h4><%= link_to "Back to trail list", trails_path %></h4>
