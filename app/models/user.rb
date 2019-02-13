@@ -26,7 +26,8 @@ class User < ApplicationRecord
 
   def favorite_shelter
     if self.shelters_visited_by_user.size >= 1
-    arr = self.shelters_visited_by_user.max_by {|s| s.shelter_rating }
+      # All shelters visited by user should have ratings, so this should not break
+    arr = self.shelters_visited_by_user.max_by {|s| s.shelter_rating}
   else
     arr = Shelter.all.sample
   end

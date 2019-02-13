@@ -13,7 +13,7 @@ class Trail < ApplicationRecord
     a = self.hikes_on_trail.collect do |hike|
       hike.rating
     end
-    a.sum/a.size.to_f
+    (a.sum/a.size.to_f).round(1)
   end
 
 

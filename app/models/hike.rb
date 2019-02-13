@@ -17,7 +17,7 @@ class Hike < ApplicationRecord
     if self.updated_at == self.created_at
       return "Pending"
     else
-      return self.updated_at
+      return self.end_time
     end
   end
 

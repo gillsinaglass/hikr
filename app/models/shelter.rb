@@ -36,16 +36,25 @@ class Shelter < ApplicationRecord
   end
 
   def shelter_rating
-    a = self.breaks_at_shelter.collect do |b|
-      b.rating
+    ratingsArr = self.breaks_at_shelter.collect do |br|
+      br.rating
     end
-    (a.inject{ |sum, el| sum + el }.to_f / a.size).round(2)
+
+    if ratingsArr.any?
+      return (ratingsArr.sum/ratingsArr.size.to_f).round(1)
+    else
+      return "No Ratings!"
+    end
   end
 
-  def all_shelter_ratings
-    a = Break.all.collect do |b|
-      b.rating
+  def self.rated_shelters
+    Shelter.all.select do |shelter|
+      shelter.shelter_rating != "No Ratings!"
     end
+  end
+
+  def self.rated_shelter_ratings
+    self.rated_shelters.collect {|shelter| shelter.shelter_rating}
   end
 
   def avg_rating
@@ -53,8 +62,8 @@ class Shelter < ApplicationRecord
   end
 
   def self.highest_rated_shelter
-    Shelter.all.max_by do |shelter|
-    shelter.shelter_rating
+    self.rated_shelters.max_by do |shelter|
+      shelter.shelter_rating
     end
   end
 end
