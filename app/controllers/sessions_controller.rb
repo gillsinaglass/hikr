@@ -6,12 +6,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:username])
-    if @user && @user.authorize(params[:password])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       if @user.admin?
         redirect_to shelters_path
       else
-      redirect_to users_path #uncertain about path redirection
+      redirect_to users_path
       end
     else
       flash["notice"] = "No user found with that name."
