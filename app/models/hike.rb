@@ -2,6 +2,12 @@ class Hike < ApplicationRecord
   belongs_to :trail
   belongs_to :user
 
+  def self.completed_hikes
+    Hike.all.select do |hike|
+      hike.updated_at != hike.created_at
+    end
+  end
+
   def start_time
     d = DateTime.parse(self.created_at.to_s)
     @start_time = d.strftime('%I:%M %p')

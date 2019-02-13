@@ -4,20 +4,16 @@ class Trail < ApplicationRecord
   has_many :users, through: :hikes
 
   def hikes_on_trail
-    Hike.all.select do |t|
+    Hike.completed_hikes.select do |t|
       t.trail_id == self.id
     end
   end
 
   def trail_rating
-    arr = self.hikes_on_trail.select do |hike|
-      hike.rating != nil
-    end
-    arr.each do |hike|
+    a = self.hikes_on_trail.collect do |hike|
       hike.rating
-      byebug
     end
-    arr2.inject{ |sum, el| sum + el }.to_f / a.size.round(2)
+    a.sum/a.size.to_f
   end
 
 

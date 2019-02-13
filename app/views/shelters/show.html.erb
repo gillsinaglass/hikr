@@ -1,8 +1,8 @@
 <h3>Name: </h3><%= @shelter.name %>
 <h3>Location: </h3><%= @shelter.location %>
 <h3>Description: </h3><%= @shelter.description %><br><br>
-<h3>Shelter Reviews: </h3>
 <h3>Shelter Rating: <%= @shelter.shelter_rating %></h3>
+<h3>Shelter Reviews: </h3>
 <ul>
 <% @shelter.review_blank.each do |review|%>
 <li><%= review %></li>

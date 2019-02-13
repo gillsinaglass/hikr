@@ -1,7 +1,7 @@
 <h1>Hike</h1>
 
-<h3>Hiker Username: </h3><%= @hike.user.username%>
-<h3>Trail Name: </h3><%= @hike.trail.name %>
+<h3>Hiker Username: </h3><%= link_to @hike.user.username, @hike.user%>
+<h3>Trail Name: </h3><%= link_to @hike.trail.name, @hike.trail %>
 <h3>Hike Rating: </h3><%= @hike.rating %>
 <h3>Hike Started At: </h3><%= @hike.start_time %>
 <h3>Hike Ended At: </h3><%= @hike.end_time %>

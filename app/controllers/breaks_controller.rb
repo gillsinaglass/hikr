@@ -37,7 +37,7 @@ class BreaksController < ApplicationController
   end
 
   def break_params
-    params.require(:break).permit(:user_id, :shelter_id, :start_time).merge(review: nil, rating: nil, end_time: nil)
+    params.require(:break).permit(:user_id, :shelter_id, :start_time).merge(review: nil, rating: 1, end_time: nil)
   end
 
   def break_update_params
