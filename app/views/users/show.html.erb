@@ -1,10 +1,20 @@
 <h2>Username: <%= @user.username %></h2><br>
 <h2>Gear: <%= @user.gear %></h2><br>
-<!-- <h2>Photo: <%= @user.photo %></h2><br> -->
+
 <% if @user.photo.attached? %>
 <h2>Profile Pic:</h2>
   <%= image_tag @user.photo %>
 <% end %>
+
+<h2> Shelters Visited: </h2>
+<ul>
+<% @user.shelters_visited.uniq.each do |s| %>
+<li><%= s.name %></li>
+<% end %>
+</ul>
+
+<h2>Favorite Shelter: <%= @user.favorite_shelter %></h2>
+<h2>Favorite Trail: <%= @user.favorite_trail %></h2>
 
 <h2>Caption: <%= @user.caption %></h2><br><br>
 
@@ -13,3 +23,4 @@
 <%= form_tag @user, method: "DELETE" do %>
   <%= submit_tag "Suspend Account" %>
 <% end %>
+
