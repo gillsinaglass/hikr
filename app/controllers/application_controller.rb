@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   helper_method :admin_authorize
   helper_method :logged_in?
 
-  
+
   def current_user
     if @user
       return @user
     else
-      user = User.find_by(id: session[:user_id])
+      @user = User.find_by(id: session[:user_id])
     end
   end
 

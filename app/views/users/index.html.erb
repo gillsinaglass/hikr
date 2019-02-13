@@ -1,10 +1,8 @@
 <h1>View all Hikers!</h1>
+<ul>
   <% @users.each do |user| %>
-  <ul>
       <li><%= link_to user.username, user %></li>
       <li><%= user.gear %></li>
-      <li><%= user.caption %></li>
+      <li><%= user.caption %></li><br>
   <% end %>
   </ul>
-
- 

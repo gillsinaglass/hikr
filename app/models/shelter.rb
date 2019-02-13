@@ -32,7 +32,7 @@ class Shelter < ApplicationRecord
   end
 
   def self.percentage_of_visitors
-    (Shelter.most_visited_shelter_count / Break.all.count.to_f*100).round(2)
+    (Shelter.most_visited_shelter_count / Shelter.all.count.to_f*100).round(2)
   end
 
   def shelter_rating

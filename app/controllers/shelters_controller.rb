@@ -2,7 +2,7 @@ class SheltersController < ApplicationController
 
   before_action :get_shelter, only: [:show]
   before_action :admin_authorize, only: [:create, :new]
-  # before_action :authorized
+  before_action :authorized
 
   def index
     @shelters = Shelter.all

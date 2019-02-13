@@ -1,7 +1,7 @@
 class TrailsController < ApplicationController
 
   before_action :get_trail, only: [:show]
-  # before_action :authorized, except: [:index]
+  before_action :authorized, except: [:index]
 
   def index
     @trails = Trail.all

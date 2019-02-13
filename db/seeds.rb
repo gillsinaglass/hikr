@@ -10,9 +10,9 @@ Trail.destroy_all
 Shelter.destroy_all
 
 
-user1 = User.create(username:"Jake", gear: "Tough Shoes, Water, Sandwiches, Chips, tent", caption:"Lorum Ipsum my dudes")
-user2 = User.create(username:"Melanie", gear: "Water-proof Backpack", caption:"I'm friendly, let's hangout")
-user3 = User.create(username:"Paul", gear: "Walking Stick, Cat Food, Cat", caption:"At-least it's Friday")
+user1 = User.create(username:"Jake", gear: "Tough Shoes, Water, Sandwiches, Chips, tent", caption:"Lorum Ipsum my dudes", password:"password")
+user2 = User.create(username:"Melanie", gear: "Water-proof Backpack", caption:"I'm friendly, let's hangout", password:"password")
+user3 = User.create(username:"Paul", gear: "Walking Stick, Cat Food, Cat", caption:"At-least it's Friday", password:"password")
 
 billy = Trail.create(name: "Billy-goat", description:"High-waters, low fields. Cat's not welcome due to Billy Goats", difficulty_level: 5, distance: 4.5)
 appalachian = Trail.create(name: "Appalachian", description:"Lose four-months of your life, gain debt, but emerge in a relationship", difficulty_level: 9, distance: 10000.2)

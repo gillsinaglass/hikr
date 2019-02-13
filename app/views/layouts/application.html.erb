@@ -12,7 +12,7 @@
   <body>
   <div class="header">
     <% if session[:user_id] %>
-      <%= link_to "Log out #{current_user.username.capitalize}", logout_path, method: "DELETE" %>
+      <%= link_to "Log out #{current_user.username}", logout_path, method: "DELETE" %>
     <% else %>
       <%= link_to "Log in", login_path %>
     <%end %>
