@@ -13,7 +13,7 @@ class Trail < ApplicationRecord
     a = self.hikes_on_trail.collect do |hike|
       hike.rating
     end
-     a.inject{ |sum, el| sum + el }.to_f / a.size
+     @@rating = a.inject{ |sum, el| sum + el }.to_f / a.size
   end
 
 
@@ -22,6 +22,12 @@ class Trail < ApplicationRecord
       b.rating
     end
     a.compact!
+  end
+
+  def users_on_trail
+    a = self.hikes_on_trail.collect do |hike|
+      hike.user
+    end
   end
 
   def avg_rating
@@ -38,7 +44,7 @@ class Trail < ApplicationRecord
     Trail.all.max_by do |trail|
     trail.difficulty_level
     end
-    end
+  end
 
 
 
