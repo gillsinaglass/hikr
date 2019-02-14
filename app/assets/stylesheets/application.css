@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   background-image: url("http://www.codyduncan.com/blogimages/2014/04/kungsleden-trail-autumn-01.jpg");
+   background-color: azure;
+   background-size: cover;
+ }
+ 
+ .text {
+   color: white
+ }
+
+ .link {
+   color: white;
+   text-decoration: none;
+
+ }
+

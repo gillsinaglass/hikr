@@ -1,8 +1,21 @@
-<h1>Shelters to Explore</h1>
-<h2>Most Visited Shelter: <%= link_to Shelter.most_visited_shelter.name, Shelter.most_visited_shelter %> <%= Shelter.percentage_of_visitors %>%</h2>
-<h2>Highest Rated Shelter: <%= link_to Shelter.highest_rated_shelter.name, Shelter.highest_rated_shelter %> <%= Shelter.highest_rated_shelter.shelter_rating %>/10</h2>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Shelters to Explore</h1>
+    </div>
+  </div><br><br>
+  <div class="row">
+    <div class="col-sm">
+      <h2>Most Visited Shelter: <%= link_to Shelter.most_visited_shelter.name, Shelter.most_visited_shelter %> <%= Shelter.percentage_of_visitors %>%</h2>
+    </div>
+    <div class="col-sm">
+      <h2>Highest Rated Shelter: <%= link_to Shelter.highest_rated_shelter.name, Shelter.highest_rated_shelter %> <%= Shelter.highest_rated_shelter.shelter_rating %>/10</h2>
+    </div>
+  </div>
+</div>
 
-<table>
+<table class="table table-bordered table-hover">
 <thead>
   <tr>
     <th>Shelter Name</th>
