@@ -53,17 +53,19 @@ class Shelter < ApplicationRecord
     end
   end
 
-  def self.rated_shelter_ratings
-    self.rated_shelters.collect {|shelter| shelter.shelter_rating}
-  end
-
   def avg_rating
     self.all_shelter_ratings.reduce(:+)/self.all_shelter_ratings.length.to_f
   end
 
   def self.highest_rated_shelter
-    self.rated_shelters.max_by do |shelter|
-      shelter.shelter_rating
+    # byebug
+
+    if self.rated_shelters.any?
+      return self.rated_shelters.max_by do |shelter|
+        shelter.shelter_rating
+      end
+    else 
+      Shelter.last
     end
   end
 end

@@ -10,10 +10,14 @@ class Trail < ApplicationRecord
   end
 
   def trail_rating
-    a = self.hikes_on_trail.collect do |hike|
+    trailRatingArr = self.hikes_on_trail.collect do |hike|
       hike.rating
     end
-    (a.sum/a.size.to_f).round(1)
+    if trailRatingArr.any?
+      return (trailRatingArr.sum/trailRatingArr.size.to_f).round(1)
+    else
+      return "No Ratings!"
+    end
   end
 
 
@@ -35,18 +39,30 @@ class Trail < ApplicationRecord
     self.all_trail_ratings.reduce(:+)/self.all_trail_ratings.length.to_f
   end
 
-  def self.highest_rated_trail
-    Trail.all.max_by do |trail|
-    trail.trail_rating
+  def self.rated_trails
+    Trail.all.select do |trail|
+      trail.trail_rating != "No Ratings!"
     end
   end
+
+  def self.highest_rated_trail
+    # max by Trails that have ratings, not all trails
+    # We need to write a rated_trails method, as in shelter model
+    if self.rated_trails.any?
+      return self.rated_trails.max_by do |trail|
+        trail.trail_rating
+      end
+    else 
+      Trail.last
+    end
+  end
+
+ 
 
   def self.most_difficult_trail
     Trail.all.max_by do |trail|
     trail.difficulty_level
     end
   end
-
-
 
 end
