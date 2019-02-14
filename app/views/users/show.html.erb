@@ -1,29 +1,36 @@
-<h2>Username: <%= @user.username %></h2>
-<h3>Caption: <%= @user.caption %></h3>
+<br>
+<div class="col-sm-4">
+<h2><%= @user.username.capitalize %></h2>
+
+<div class="img-fluid">
 
 <% if @user.photo.attached? %>
-<h2>Profile Pic:</h2>
   <%= image_tag @user.photo %>
 <% end %>
+</div>
 
-<h2>Gear: <%= @user.gear %></h2>
-<h2> Shelters Visited: </h2>
+<ul class="list-group">
+  <li class="list-group-item">Caption: <%= @user.caption %></li>
+  <li class="list-group-item">Gear: <%= @user.gear %></li>
+  <li class="list-group-item"> Shelters Visited:
 
-<% @user.shelters_visited_by_user.uniq.each do |s| %>
-<button type="button" class="btn btn-outline-warning"><%= link_to s.name, s %></button>
-<% end %>
-
-
-<h2>Favorite Shelter: <%= link_to @user.favorite_shelter.name, @user.favorite_shelter %></h2>
-<h2>Favorite Trail: <%= link_to @user.favorite_trail.name, @user.favorite_trail %></h2>
+  <% @user.shelters_visited_by_user.uniq.each do |s| %>
+  <button type="button" class="btn btn-outline-warning"><%= link_to s.name, s %></button></li>
+  <% end %>
 
 
-<button type="button" class="btn btn-outline-success"><%= link_to "Explore Trails", trails_path %></button>
-<button type="button" class="btn btn-outline-success"><%= link_to "View Other Hikers", users_path %></button><br><br><br>
+  <li class="list-group-item">Favorite Shelter: <%= link_to @user.favorite_shelter.name, @user.favorite_shelter %></li>
+  <li class="list-group-item">Favorite Trail: <%= link_to @user.favorite_trail.name, @user.favorite_trail %></li>
+</ul>
+
+
+
+<br><br><br>
 <button type="button" class="btn btn-outline-success"><%= link_to "Update Your Profile", edit_user_path(@user) %></button><br><br><br><br><br>
 
 
+</div>
 <hr>
 <%= form_tag @user, method: "DELETE" do %>
   <button type="button" class="btn btn-outline-danger"><%= submit_tag "Suspend Account" %></button>
-<% end %></hr>
+<% end %>
