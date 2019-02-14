@@ -1,26 +1,37 @@
-<h1>Choose a Trail</h1>
-<h3>Top Rated Trail: <%= link_to Trail.highest_rated_trail.name, Trail.highest_rated_trail %> <%= Trail.highest_rated_trail.trail_rating %>/10</h3>
-<table>
-<thead>
-  <tr>
-    <th>Trail Name</th>
-    <th>Distance</th>
-    <th>Difficulty Level</th>
-    <th>Trail Rating</th>
-  </tr>
-</thead>
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <h1 class="text-center">Choose a Trail</h1>
+    </div>
+  </div><br><br>
+  <div class="row">
+    <div class="col-sm">
+      <h3>Top Rated Trail: <%= link_to Trail.highest_rated_trail.name, Trail.highest_rated_trail %> <%= Trail.highest_rated_trail.trail_rating %>/10</h3>
+    </div>
+  </div>
+</div>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Trail Name</th>
+            <th>Distance</th>
+            <th>Difficulty Level</th>
+            <th>Trail Rating</th>
+            <th>Hike</th>
+          </tr>
+        </thead>
 
-<tbody>
-  <% @trails.each do |trail| %>
-    <tr>
-      <td><%= link_to trail.name, trail %></td>
-      <td><%= trail.distance %></td>
-      <td><%= trail.difficulty_level %></td>
-      <td><%= trail.trail_rating %></td>
-    </tr>
-  <% end %>
-</tbody>
+        <tbody>
+          <% @trails.each do |trail| %>
+          <tr>
+            <td><%= link_to trail.name, trail %></td>
+            <td><%= trail.distance %></td>
+            <td><%= trail.difficulty_level %></td>
+            <td><%= trail.trail_rating %></td>
+            <td><%= link_to "Start Hike", new_hike_path %></td>
+          </tr>
+          <% end %>
+        </tbody>
 
-</table>
-
-<h4>Add a trail? <%= link_to "Create Trail", new_trail_path %></h4>
+      </table>
