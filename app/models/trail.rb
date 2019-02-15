@@ -46,8 +46,6 @@ class Trail < ApplicationRecord
   end
 
   def self.highest_rated_trail
-    # max by Trails that have ratings, not all trails
-    # We need to write a rated_trails method, as in shelter model
     if self.rated_trails.any?
       return self.rated_trails.max_by do |trail|
         trail.trail_rating
