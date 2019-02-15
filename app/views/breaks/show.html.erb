@@ -1,9 +1,17 @@
+<br>
+<div class="col-sm-4">
 <h2>Break Has Begun at <%= link_to @break.shelter.name %></h2>
-<h3>Start Time: </h3><%= @break.start_time %>
-<h3>End Time: </h3><%= @break.end_time %><br>
-<h3>Total Break Time: </h3><%= @break.length_of_break %>
-<h3>Review: </h3><%= @break.review %><br><br>
-<h3>Rating: </h3><%= @break.rating %><br><br>
+<div class="img-fluid">
 
+<ul class="list-group">
+<li class="list-group-item">Start Time: <%= @break.start_time %></li>
+<li class="list-group-item">End Time: <%= @break.end_time %></li>
+<li class="list-group-item">Total Break Time: <%= @break.length_of_break %></li>
+<li class="list-group-item">Review: <%= @break.review %></li>
+<li class="list-group-item">Rating: <%= @break.rating %></li>
 
-<%= link_to "End Break", edit_break_path(@break) %>
+</ul>
+
+<br>
+
+<button type="button" class="btn btn-outline-danger"><%= link_to "End Break", edit_break_path(@break) %></button>

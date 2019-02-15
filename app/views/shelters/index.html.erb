@@ -22,6 +22,7 @@
     <th>Trail Name</th>
     <th>Location on Trail</th>
     <th>Description</th>
+    <th>Break</th>
   </tr>
 </thead>
 
@@ -32,6 +33,7 @@
       <td><%= link_to shelter.trail.name, shelter.trail%></td>
       <td><%= shelter.location %></td>
       <td><%= shelter.description %></td>
+      <td><%= link_to "Start Break", new_break_path %></td>
     </tr>
   <% end %>
 </tbody>

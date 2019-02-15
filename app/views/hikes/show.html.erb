@@ -1,23 +1,27 @@
+<br>
+<div class="col-sm-4">
 <h1>Hike</h1>
+<div class="img-fluid">
 
-<h3>Hiker Username: </h3><%= link_to @hike.user.username, @hike.user%>
-<h3>Trail Name: </h3><%= link_to @hike.trail.name, @hike.trail %>
-<h3>Hike Rating: </h3><%= @hike.rating %>
-<h3>Hike Started At: </h3><%= @hike.start_time %>
-<h3>Hike Ended At: </h3><%= @hike.status %>
-<h3>Total Hike Time: </h3><%= @hike.length_of_hike %><br><br>
-<h3>Trail Length: </h3><%= @hike.get_trail_length %>
+<ul class="list-group">
+<li class="list-group-item">Hiker Username: <%= link_to @hike.user.username, @hike.user%></li>
+<li class="list-group-item">Trail Name: <%= link_to @hike.trail.name, @hike.trail %></li>
+<li class="list-group-item">Hike Rating: <%= @hike.rating %></li>
+<li class="list-group-item">Hike Started At: <%= @hike.start_time %></li>
+<li class="list-group-item">Hike Ended At: <%= @hike.status %></li>
+<li class="list-group-item">Total Hike Time: <%= @hike.length_of_hike %></li>
+<li class="list-group-item">Trail Length: <%= @hike.get_trail_length %></li>
 
-<h3>Shelters on <%= @hike.trail.name %>:</h3>
-<ul>
+<li class="list-group-item">Shelters on <%= @hike.trail.name %>:
+
   <% @hike.trail.shelters.each do |shelter| %>
-  <li><%= link_to shelter.name, shelter %></li>
+  <%= link_to shelter.name, shelter %></li>
   <% end %>
 </ul>
 
 
 <% if @hike.status == "Pending" %>
-<%= link_to "End Hike", edit_hike_path %>
+<button type="button" class="btn btn-outline-success"><%= link_to "End Hike", edit_hike_path %></button>
 <% else %>
-<%= link_to "Return Home", current_user %>
+<button type="button" class="btn btn-outline-success"><%= link_to "Return Home", current_user %></button>
 <% end %>
