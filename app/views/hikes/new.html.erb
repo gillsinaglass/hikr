@@ -2,7 +2,7 @@
 
 <%= form_for @hike do |f| %>
 <%= f.collection_select(:trail_id, Trail.all, :id, :name, prompt: "Trail") %>
-<%= f.submit "Submit" %>
+<button type="button" class="btn btn-primary btn-sm"><%= f.submit "Submit", class: "submit" %></button>
 
 
 

@@ -1,24 +1,28 @@
+<br>
+<div class="col-sm-4">
 <h1><%= @trail.name %></h1>
+<div class="img-fluid">
 
-<h2>Description: <%= @trail.description %></h2>
-<h2>Distance: <%= @trail.distance %></h2>
-<h2>Difficulty Level: <%= @trail.difficulty_level %></h2>
-<h2>Hikes On Trail: <%= @trail.hikes_on_trail.count %></h2>
+<ul class="list-group">
+<li class="list-group-item">Description: <%= @trail.description %></li>
+<li class="list-group-item">Distance: <%= @trail.distance %></li>
+<li class="list-group-item">Difficulty Level: <%= @trail.difficulty_level %></li>
+<li class="list-group-item">Hikes On Trail: <%= @trail.hikes_on_trail.count %></li>
 
-<h3>Shelters on <%= @trail.name %>: </h3>
-<ul>
+<li class="list-group-item">Shelters on <%= @trail.name %>:
+
   <% @trail.shelters.each do |shelter| %>
-  <li><%= link_to shelter.name, shelter %></li>
+  <button type="button" class="btn btn-outline-warning"><%= link_to shelter.name, shelter %></button></li>
   <% end %>
-</ul>
 
-<h3>Previous Hikers:</h3>
-  <ul>
+
+<li class="list-group-item">Previous Hikers
+ 
   <% @trail.users_on_trail.each do |user| %>
-  <li><%= link_to user.username, user %></li>
-  <% end %></h3>
+  <button type="button" class="btn btn-outline-warning"><%= link_to user.username, user %></button></li>
+  <% end %>
+
 
 </ul>
-
 <hr>
-<h4><%= link_to "Back to trail list", trails_path %></h4>
+<button type="button" class="btn btn-outline-success"><%= link_to "Back to trail list", trails_path %></button>

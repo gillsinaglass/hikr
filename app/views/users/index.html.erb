@@ -1,12 +1,18 @@
+<br>
 <h1>View all Hikers!</h1>
-<ul>
+<br>
+
+<ul class="list-group">
   <% @users.each do |user| %>
 
-        <% if user.photo.attached? %>
+   <li class="list-group-item">     
+
+      <%= link_to user.username, user %><br><br>
+      <% if user.photo.attached? %>
         <%= image_tag user.photo, class: "img"%>
         <% end %>
+      <br><br><%= user.caption %></li><br>
 
-      <li><%= link_to user.username, user %></li>
-      <li><%= user.caption %></li><br>
+      
   <% end %>
   </ul>

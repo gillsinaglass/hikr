@@ -1,17 +1,25 @@
-<h3>Name: </h3><%= @shelter.name %>
-<h3>Location: </h3><%= @shelter.location %>
-<h3>Description: </h3><%= @shelter.description %><br><br>
-<h3>Shelter Rating: <%= @shelter.shelter_rating %></h3>
-<h3>Shelter Reviews: </h3>
-<ul>
+<br>
+<div class="col-sm-4">
+<h1><%= @shelter.name %></h1>
+<div class="img-fluid">
+
+<ul class="list-group">
+
+<li class="list-group-item">Location: <%= @shelter.location %></li>
+<li class="list-group-item">Description: <%= @shelter.description %></li>
+<li class="list-group-item">Shelter Rating: <%= @shelter.shelter_rating %></li>
+<li class="list-group-item">Shelter Reviews: 
+
 <% @shelter.review_blank.each do |review|%>
-<li><%= review %></li>
+    <button type="button" class="btn btn-outline-warning"><%= review %></button></li>
 <% end %>
 
+</ul> 
 
-</ul> <br><br>
+
+<br><br>
 
 <hr>
 
 
-<%= link_to "All Shelters", shelters_path %>
+<button type="button" class="btn btn-outline-success"><%= link_to "All Shelters", shelters_path %></button>

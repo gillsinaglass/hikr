@@ -5,10 +5,10 @@
 <div class="img-fluid">
 
 <% if @user.photo.attached? %>
-  <%= image_tag @user.photo %>
+  <%= image_tag @user.photo, class: "profile-pic" %>
 <% end %>
 </div>
-
+<br>
 <ul class="list-group">
   <li class="list-group-item">Caption: <%= @user.caption %></li>
   <li class="list-group-item">Gear: <%= @user.gear %></li>
@@ -32,5 +32,5 @@
 </div>
 <hr>
 <%= form_tag @user, method: "DELETE" do %>
-  <button type="button" class="btn btn-outline-danger"><%= submit_tag "Suspend Account" %></button>
+  <button type="button" class="btn btn-outline-danger"><%= submit_tag "Suspend Account", class: 'submit' %></button>
 <% end %>

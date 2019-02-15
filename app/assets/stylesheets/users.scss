@@ -11,6 +11,15 @@
 }
 
 .img {
-    max-width: 50px;
+    max-width: 80px;
     max-height: auto;
+  }
+
+  .profile-pic {
+    max-width: 200px;
+    max-height: auto;
+  }
+
+  .submit {
+    all: unset;
   }
