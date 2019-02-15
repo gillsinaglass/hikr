@@ -13,8 +13,11 @@
  *= require_tree .
  *= require_self
  */
-
-
+ body {
+  background-image: url(https://i.pinimg.com/originals/9e/7b/47/9e7b47982ee1b58fef26717182b4b28c.jpg);
+  background-color: green;
+  background-size: cover;
+}
 
  .link {
     color: white;

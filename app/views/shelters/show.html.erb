@@ -8,10 +8,14 @@
 <li class="list-group-item">Location: <%= @shelter.location %></li>
 <li class="list-group-item">Description: <%= @shelter.description %></li>
 <li class="list-group-item">Shelter Rating: <%= @shelter.shelter_rating %></li>
-<li class="list-group-item">Shelter Reviews: 
+</ul>
+</br>
+
+<ul class="list-group">
+<h5>Shelter Reviews:</h5>
 
 <% @shelter.review_blank.each do |review|%>
-    <button type="button" class="btn btn-outline-warning"><%= review %></button></li>
+    <li class="list-group-item"><%= review %></li>
 <% end %>
 
 </ul> 
